@@ -31,7 +31,6 @@ discDat$species[discDat$species == "Chinook "] <- "Chinook"
 discDat$species[discDat$species == "chinook"] <- "Chinook"
 discDat$species[discDat$species == "chinook-hatchery"] <- "Chinook-hatchery"
 
-
 #------------------------------------------------------------------------------
 #  Broughton data from Salmon Coast Field Station
 #------------------------------------------------------------------------------
@@ -184,6 +183,11 @@ dat <- data.frame(
 		discDat$Lep_gravid,
 		broFish$Lep_gravid,
 		clayFish$Lep_gravid),
+	#**
+	Lep_male = c(
+		discDat$Lep_male,
+		broFish$Lep_male,
+		clayFish$Lep_male),
 	
 	Lep_unid = c(
 		discDat$Lep_unid,
@@ -223,8 +227,8 @@ dat <- data.frame(
 
 
 # Replace NAs with zeroes for lice counts
-NAs <- which(is.na(dat[,16:30]) == TRUE, arr.ind = TRUE)
-dat[cbind(NAs[, 1], c(16:30)[NAs[, 2]])] <- 0
+NAs <- which(is.na(dat[,16:31]) == TRUE, arr.ind = TRUE)
+dat[cbind(NAs[, 1], c(16:31)[NAs[, 2]])] <- 0
 
 unique(dat$location[dat$region == "Discovery"])
 
